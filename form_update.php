@@ -35,12 +35,16 @@ if (!isset($_SESSION['user'])) {
             <input type="email" name="email" id="email" value="<?php echo $_SESSION['user']['email']; ?>">
         </div>
         <div>
-            <label for="mdp">Mot de passe</label>
-            <input type="password" name="mdp" id="mdp" placeholder="mot de passe">
+            <label for="oldmdp">Ancien mot de passe</label>
+            <input type="password" name="oldmdp" id="oldmdp" placeholder="Ancien mot de passe">
         </div>
         <div>
-            <label for="mdp">Confirmer mot de passe</label>
-            <input type="password" name="truemdp" id="mdp" placeholder="confirmer mot de passe">
+            <label for="newmdp">Nouveau mot de passe</label>
+            <input type="password" name="newmdp" id="newmdp" placeholder="Nouveau mot de passe">
+        </div>
+        <div>
+            <label for="truemdp">Confirmer mot de passe</label>
+            <input type="password" name="truemdp" id="truemdp" placeholder="Confirmer mot de passe">
         </div>
         <div><input type="submit" value="Modifier" name="modifier"></div>
 
