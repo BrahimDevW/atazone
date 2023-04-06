@@ -13,6 +13,7 @@ session_start();
 
 <body>
     <header>
+        <div class="titre">
         <h1>Identification</h1>
         <section>
 
@@ -26,6 +27,7 @@ session_start();
                 unset($_SESSION['login']);
             }
             ?>
+        </div>
         </section>
     </header>
     <main>

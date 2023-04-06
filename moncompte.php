@@ -33,8 +33,19 @@ session_start();
         if (isset($_SESSION['user'])) {
 
             $nom = $_SESSION['user']['nom'];
-            echo '<p>Bienvenue ' . $nom . '</p>
-       
+            $prenom = $_SESSION['user']['prenom'];
+            $adresse = $_SESSION['user']['adresse'];
+            $code_postal = $_SESSION['user']['code_postal'];
+            echo '<p> ' . $nom .' '. $prenom .'</p>
+                  <p>Adresse de livraison:</p>
+                  <p> ' . $nom .'</p>
+                  <p> ' . $prenom .'</p>
+                  <p> ' . $adresse .'</p>
+                  <p> ' . $code_postal .'</p>
+                  
+
+
+
                  <form action="delete.php" method="post">
                  <input type="hidden" name="id" value="' . $_SESSION['user']['id'] . '">
                  <input type="submit" name="btn" value="Supprimer mon compte"></input>

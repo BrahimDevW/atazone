@@ -1,0 +1,21 @@
+h1{
+    font-family: fantasy;
+    font-size: 50px;
+}
+
+ul, li, a{
+    display: flex ;
+    flex-direction: row;
+    justify-content: flex-end;
+    list-style: none;
+    margin-left: 50px;
+    font-family: fantasy; 
+    font-size: larger;
+    text-decoration: none;
+    color: grey;
+}
+
+.titre {
+    display: flex;
+    justify-content: space-between;
+}
