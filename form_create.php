@@ -16,51 +16,60 @@ require_once __DIR__ . '/csrf.php';
 </head>
 
 <body>
-    <h1>Inscription</h1>
-    <?php
+    <div class="titre">
 
-    require_once 'navbar.php';
+        <?php
+        require_once 'navbar.php';
+        ?>
 
+    </div>
+    <h2>Créer votre compte</h2>
+    <div class="message">
 
+        <?php
     if (isset($_SESSION['login'])) {
         echo $_SESSION['login'];
         unset($_SESSION['login']);
     }
     ?>
-
+    </div>
+    <br>
     <form action="create.php" method="post">
-        <div>
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" placeholder="nom">
+        <div class="formulaire">
+            <div>
+                <label for="nom">Nom :</label><br>
+                <input type="text" name="nom" id="nom" placeholder="">
+            </div>
+            <div>
+                <label for="prenom">Prénom :</label> <br>
+                <input type="text" name="prenom" id="prenom" placeholder="">
+            </div>
+            <div>
+                <label for="adresse">Adresse :</label><br>
+                <input type="text" name="adresse" id="adresse" placeholder="XX rue de l'exemple ">
+            </div>
+            <div>
+                <label for="code_postal">Code Postal :</label> <br>
+                <input type="text" name="code_postal" id="code_postal" placeholder="59XXX">
+            </div>
+            <div>
+                <label for="email">Email :</label> <br>
+                <input type="email" name="email" id="email" placeholder="exemple@mail.fr">
+            </div>
+            <div>
+                <label for="mdp">Mot de passe :</label> <br>
+                <input type="password" name="mdp" id="mdp" placeholder="mot de passe">
+                <div>
+                    <label for="mdp">Confirmer mot de passe :</label>
+                    <input type="password" name="truemdp" id="mdp" placeholder="Confirmer mot de passe">
+                </div>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LfsQ1olAAAAANsCGDwP0PKR_IqKA6cTxwNYfaY4"></div>
+            <?php echo setCSRF(); ?>
+
+            <div><button>Enregistrer</button></div>
         </div>
-        <div>
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom">
-        </div>
-        <div>
-            <label for="adresse">Adresse</label>
-            <input type="text" name="adresse" id="adresse" placeholder="89 rue de l'exemple ">
-        </div>
-        <div>
-            <label for="code_postal">Code Postal</label>
-            <input type="text" name="code_postal" id="code_postal" placeholder="59XXX">
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="email">
-        </div>
-        <div>
-            <label for="mdp">Mot de passe</label>
-            <input type="password" name="mdp" id="mdp" placeholder="mot de passe">
-        </div>
-        <div>
-            <label for="mdp">Confirmer mot de passe</label>
-            <input type="password" name="truemdp" id="mdp" placeholder="confirmer mot de passe">
-        </div>
-        <div class="g-recaptcha" data-sitekey="6LfsQ1olAAAAANsCGDwP0PKR_IqKA6cTxwNYfaY4"></div>
-        <?php echo setCSRF(); ?>
-        <div><input type="submit" value="Enregistrer" name="enregisrer"></div> 
-       
+
     </form>
     <?php
     if (isset($_SESSION['user'])) {

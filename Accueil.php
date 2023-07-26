@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,15 +11,19 @@ session_start();
 
 <body>
     <div class="titre">
-    <h1>Site de vetement</h1>
+        <h1></h1>
+            <?php
+            session_start();
+            require_once 'navbar.php';
+            ?>
+    </div>
+    <div>
     <?php
-
-    require_once 'navbar.php';
-
     if (isset($_SESSION['user'])) {
         echo "Bienvenue {$_SESSION['user']['nom']}";
     }
     ?>
+
     </div>
 
 </body>
