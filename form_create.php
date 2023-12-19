@@ -10,23 +10,25 @@ require_once __DIR__ . '/csrf.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../crud.css">
+    <link rel="stylesheet" href="../Css/crud.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Document</title>
 </head>
 
 <body>
     <h1>Inscription</h1>
-    <?php
+    <div class="message">
 
-    require_once 'navbar.php';
+        <?php
 
+        require_once 'navbar.php';
 
-    if (isset($_SESSION['login'])) {
-        echo $_SESSION['login'];
-        unset($_SESSION['login']);
-    }
-    ?>
+        if (isset($_SESSION['login'])) {
+            echo $_SESSION['login'];
+            unset($_SESSION['login']);
+        }
+        ?>
+    </div>
 
     <form action="create.php" method="post">
         <div>
@@ -54,13 +56,13 @@ require_once __DIR__ . '/csrf.php';
             <input type="password" name="mdp" id="mdp" placeholder="mot de passe">
         </div>
         <div>
-            <label for="mdp">Confirmer mot de passe</label>
+            <label for="mdp">Confirmer mot de passe</label> <br>
             <input type="password" name="truemdp" id="mdp" placeholder="confirmer mot de passe">
         </div>
         <div class="g-recaptcha" data-sitekey="6LfsQ1olAAAAANsCGDwP0PKR_IqKA6cTxwNYfaY4"></div>
         <?php echo setCSRF(); ?>
-        <div><input type="submit" value="Enregistrer" name="enregisrer"></div> 
-       
+        <div><input type="submit" value="Enregistrer" name="enregisrer"></div>
+
     </form>
     <?php
     if (isset($_SESSION['user'])) {

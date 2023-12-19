@@ -1,6 +1,7 @@
 h1{
     font-family: fantasy;
-    font-size: 50px;
+    font-size: 500px;
+    background-color: aqua;
 }
 
 ul, li, a{
@@ -15,7 +16,12 @@ ul, li, a{
     color: grey;
 }
 
+.navbar{
+    color: aliceblue;
+}
+
 .titre {
     display: flex;
     justify-content: space-between;
 }
+
