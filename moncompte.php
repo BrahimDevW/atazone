@@ -20,16 +20,18 @@ session_start();
 
 <body>
     <header>
-        <h1>Compte</h1>
-    </header>
-    <main>
+    <div class="titre">
         <?php
         require_once 'navbar.php';
         if (isset($_SESSION['compte'])) {
             echo $_SESSION['compte'];
             unset($_SESSION['compte']);
         }
-
+        ?>
+    </div>
+    </header>
+    <main>
+        <?php
         if (isset($_SESSION['user'])) {
 
             $nom = $_SESSION['user']['nom'];
@@ -37,7 +39,7 @@ session_start();
             $adresse = $_SESSION['user']['adresse'];
             $code_postal = $_SESSION['user']['code_postal'];
             echo '<p> ' . $nom .' '. $prenom .'</p>
-                  <p>Adresse de livraison:</p>
+                  <p style="font-weight:bold">Adresse de livraison:</p>
                   <p> ' . $nom .'</p>
                   <p> ' . $prenom .'</p>
                   <p> ' . $adresse .'</p>
@@ -48,16 +50,13 @@ session_start();
 
                  <form action="delete.php" method="post">
                  <input type="hidden" name="id" value="' . $_SESSION['user']['id'] . '">
-                 <input type="submit" name="btn" value="Supprimer mon compte"></input>
+                 <input type="submit" name="btn" value="Supprimer mon compte" style="border-radius: 3px ; padding:5px"></input>
                 </form>';
         }
-        ?>
-
-        <?php
         echo ' 
         <form action="form_update.php" method="post">
             <input type="hidden" name="id" value="' . $_SESSION['user']['id'] . '">
-            <input type="submit" name="btn" value="modifier mot de passe"></input>
+            <input type="submit" name="btn" value="modifier mot de passe" style="border-radius: 3px ; padding:5px ; margin-top: 5px;"></input>
         </form>'
         ?>
 

@@ -8,37 +8,42 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <ul>
-        <li>
-            <a href="Accueil.php">Accueil</a>
-        </li>
-        <?php
-        if (isset($_SESSION['user'])) {
-        ?>
+    <div class="navbar">
+
+    <h1>ATAZONE</h1>
+        <ul>
             <li>
-                <a href="moncompte.php">Mon compte</a>
+                <a href="Accueil.php">Accueil</a>
             </li>
-            <li>
-                <a href="logout.php">Logout</a>
-            </li>
-    
-        <?php
-        } else {
-        ?>
-            <li>
-                <a href="login.php">Login</a>
-            </li>
-            <li>
-                <a href="create.php">Créer un compte</a>
-            </li>
-    
-        <?php
-        }
-    
-        ?>
-    
-    </ul>
+            <?php
+            if (isset($_SESSION['user'])) {
+            ?>
+                <li>
+                    <a href="moncompte.php">Mon compte
+                    </a>
+                </li>
+                <li>
+                    <a href="logout.php">Déconnection</a>
+                </li>
+        
+            <?php
+            } else {
+            ?>
+                <li>
+                    <a href="login.php">Se Connecter</a>
+                </li>
+                <li>
+                    <a href="create.php">Créer un compte</a>
+                </li>
+        
+            <?php
+            }
+        
+            ?>
+        
+        </ul>
+
+    </div>
     
 </body>
 </html>

@@ -1,7 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(./image/atazone3.jpg);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 h1{
     font-family: fantasy;
     font-size: 500px;
     background-color: aqua;
+
+    font-size: 90px;
+    color: white;
+    
+}
+h2{
+    color: white;
+    text-align: center;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin: 2em;
 }
 
 ul, li, a{
@@ -11,11 +37,19 @@ ul, li, a{
     list-style: none;
     margin-left: 50px;
     font-family: fantasy; 
-    font-size: larger;
+    font-size: 20px;
     text-decoration: none;
-    color: grey;
+    color: white;
+    /* -webkit-text-stroke: 2px; */
+    /* -webkit-text-stroke-color: rgb(25, 69, 25); */
+    
+}
+form{
+    display: flex;
+    justify-content: center;
 }
 
+ HEAD
 .navbar{
     color: aliceblue;
 }
@@ -24,4 +58,47 @@ ul, li, a{
     display: flex;
     justify-content: space-between;
 }
+.formulaire{
+    display: flex;
+    flex-direction: column;
+    width: 15em;
+    margin-bottom: 1em;
+    margin-left: 3em;
+    color: white;
+    
+}
+
+.formulaire input{
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+button{
+    padding: 0.5em;
+    width: 100%;
+}
+
+.message{
+    color: aliceblue;
+    text-align: center;
+}
+
+@media screen and (max-width:800px){
+    h1{
+        text-align: center;
+    }
+    .navbar 
+    {
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+
+
+
+
 
