@@ -6,3 +6,7 @@
 
 
 var_dump(password_hash('P@ssw0rd',PASSWORD_ARGON2I));
+
+
+//identifiant: MonSite
+//mot de passe wordpress :Azerty@5959.

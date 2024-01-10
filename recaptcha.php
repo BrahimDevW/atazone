@@ -1,7 +1,5 @@
 <?php
-session_start();
-require_once __DIR__ . '/csrf.php';
-
+//fonction check verify
 function verifyReCaptcha($recaptchaCode)
 {
     $postdata = http_build_query([
@@ -22,13 +20,17 @@ function verifyReCaptcha($recaptchaCode)
     return $check->success;
 }
 
-$nom = $_POST['nom'] ?? null;
-$prenom = $_POST['prenom'] ?? null;
-$adresse = $_POST['adresse'] ?? null;
-$code_postal = $_POST['code_postal'] ?? null;
-$email = $_POST['email'] ?? null;
-$mdp = $_POST['mdp']; // P@ssw0rd
+//recup data formulaire
+$nom = $_POST['nom'] ?? '';
+$prenom = $_POST['prenom'] ?? '';
+$adresse = $_POST['adresse'] ?? '';
+$code_postal = $_POST['code_postal'] ?? '';
+$email = $_POST['email'] ??
+$mdp = $_POST['mdp'] ?? '';
 $truemdp = $_POST['truemdp'];
+
+
+$tabCivilite = ['mr', 'mme', 'autre'];
 
 if (
     !is_null($nom) && strlen($nom) <= 100 &&
@@ -40,37 +42,8 @@ if (
     !is_null($mdp) && preg_match('/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\W])(?=\S*[\d])\S*$/', $mdp) &&
     $mdp === $truemdp
     && verifyReCaptcha($_POST['g-recaptcha-response'])
-
 ) {
-    require_once __DIR__ . '/dbCon.php';
-
-    $sql = 'insert into utilisateur values(null, :nom,:prenom,:adresse,:code_postal, :email, :mdp);';
-    $stmt = $pdo->prepare($sql);
-
-    $mdp = dataCleaning($mdp);
-
-    $res = $stmt->execute([
-        'nom' => dataCleaning($nom),
-        'prenom' => dataCleaning($prenom),
-        'adresse' => dataCleaning($adresse),
-        'code_postal' => dataCleaning($code_postal),
-        'email' => dataCleaning($email),
-        'mdp' => password_hash($mdp, PASSWORD_ARGON2I)
-        
-    ]);
-
-    if ($res) {
-        $_SESSION['login'] = 'Inscription réussi';
-        header('location:login.php');
-
-        die();
-    } else {
-        $_SESSION['login'] = 'Erreur administrateur';
-    }
+    echo 'ok!';
 } else {
-    $_SESSION['login'] = 'Veuillez vérifier les informations saisie sur le formulaire';
+    echo 'ko!';
 }
-header('location:form_create.php');
-
-
-

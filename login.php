@@ -8,14 +8,16 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
     <title>Document</title>
 </head>
 
 <body>
     <header>
-        <h1>Identification</h1>
+        <div class="titre">
+        
         <section>
-
+            <div class="message">
             <?php
             require_once 'navbar.php';
             // est-ce qu'on a un message a afficher
@@ -26,19 +28,24 @@ session_start();
                 unset($_SESSION['login']);
             }
             ?>
+            </div>
+        </div>
         </section>
     </header>
     <main>
-        <form action="authentification.php" method="post">
-            <div>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="email" />
+        <form action="authentification.php" method="post" class="origin">
+            <div class="formulaire">
+                <h3>Accéder à votre compte</h3>
+
+                
+                    <label for="email">Email :</label>
+                    <input type="email" name="email" id="email" placeholder="email" />
+
+                    <label for="mdp">Mot de passe :</label>
+                    <input type="password" name="mdp" id="mdp" placeholder="mot de passe" />
+
+                <div><button>Se Connecter</button></div>
             </div>
-            <div>
-                <label for="mdp">Mot de passe</label>
-                <input type="password" name="mdp" id="mdp" placeholder="mot de passe" />
-            </div>
-            <div><input type="submit" value="Connecter" /></div>
 
         </form>
     </main>
